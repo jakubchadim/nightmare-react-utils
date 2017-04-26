@@ -2,6 +2,12 @@
   "name": "nightmare-react-utils",
   "version": "1.0.0",
   "description": "Utils for scraping react",
+  "keywords": [
+    "nightmare",
+    "react",
+    "scraping",
+    "utils"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "cd ./test && ../node_modules/.bin/mocha . --recursive --require ./init",

@@ -7,12 +7,14 @@
  * @param {Function} done
  * @return {Object|Array}
  */
-const findAll = (selector, done) => {
+const findAll = function (selector, done) {
   this.evaluate_now((selector) => {
     let elements = document.querySelectorAll(selector)
     if (!elements.length) {
       throw new Error('Unable to find react elements by selector: ' + selector)
     }
+
+    elements = [].slice.call(elements) // Convert to array
 
     const reactElements = elements.map(element => {
       for (let key in element) {
@@ -27,7 +29,7 @@ const findAll = (selector, done) => {
           }
         }
       }
-    }).filter(e => !e)
+    }).filter(e => e != null)
 
     if (!reactElements.length) {
       throw new Error('Unable to find react elements by selector: ' + selector)

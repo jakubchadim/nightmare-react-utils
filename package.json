@@ -1,0 +1,46 @@
+{
+  "name": "nightmare-react-utils",
+  "version": "1.0.0",
+  "description": "Utils for scraping react",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd ./test && ../node_modules/.bin/mocha . --recursive --require ./init",
+    "lint": "./node_modules/.bin/standard",
+    "prepush": "npm run lint && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakubchadim/nightmare-react-utils"
+  },
+  "author": "Jakub Chadim",
+  "license": "MIT",
+  "homepage": "https://github.com/jakubchadim/nightmare-react-utils#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "husky": "^0.13.1",
+    "mocha": "^3.2.0",
+    "rewire": "^2.5.2",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0",
+    "standard": "^8.6.0"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect",
+      "db",
+      "request",
+      "app",
+      "spy",
+      "useFakeTimers",
+      "config"
+    ]
+  }
+}

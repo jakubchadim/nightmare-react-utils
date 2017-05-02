@@ -98,7 +98,7 @@ const wait = function () {
         timeout = args[3]
       }
 
-      callback = (element) => _get(element, callback) === shouldBe
+      callback = (element) => _get(element, args[1]) === shouldBe
     } else if (typeof args[1] === 'number') {
       timeout = args[1]
     }
@@ -180,17 +180,17 @@ function waitfn () {
 function waitelem (self, selector, done) {
   let elementPresent
   eval('elementPresent = function() {' + // eslint-disable-line
-    `  var element = document.querySelector('${selector}')` +
+    `  var element = document.querySelector('${selector}');` +
     '  if (!element) { return null }' +
     '  for (let key in element) {' +
     '    if (key.startsWith(\'__reactInternalInstance$\')) {' +
-    '      const compInternals = element[key]._currentElement' +
-    '      const compWrapper = compInternals._owner' +
-    '      const {props, state, context} = compWrapper._instance' +
+    '      const compInternals = element[key]._currentElement;' +
+    '      const compWrapper = compInternals._owner;' +
+    '      const {props, state, context} = compWrapper._instance;' +
     '      return {props, state, context}' +
     '    }' +
     '  }' +
-    '  return null' +
+    '  return null;' +
     '}')
   waitfn.apply(this, [self, elementPresent, done])
 }

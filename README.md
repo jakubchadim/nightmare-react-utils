@@ -14,13 +14,32 @@ Nightmare()
   .react.findAll('.item')
   .then(function(items) {
     //... do something with items values
-  });
+  })
 ```
 
 #### Available actions
 
 All actions are in .react namespace
 
+##### .find(selector)
+Finds react elements and take his state, props and context.
+Returns objects with {state, props, context}
+
 ##### .findAll(selector)
 Finds react elements and take their state, props and context.
-Returns single or array of objects {state, props, context}
+Returns array of objects {state, props, context}
+
+##### .wait(selector, [callback|(path, value), timeout])
+Waits for react element.
+
+Usage:
+```javascript
+nightmare
+  .react.wait('.react-element')
+  .react.wait('.react-element', (values) => values.state.loaded)
+  .react.wait('.react-element', 'state.name', 'Something')
+  .react.wait('.react-element', 500)
+  .then(function() {
+    //... do something ...
+  })
+```

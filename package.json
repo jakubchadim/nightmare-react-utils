@@ -1,6 +1,6 @@
 {
   "name": "nightmare-react-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utils for scraping react",
   "keywords": [
     "nightmare",
@@ -48,5 +48,9 @@
       "useFakeTimers",
       "config"
     ]
+  },
+  "dependencies": {
+    "lodash.get": "^4.4.2",
+    "sliced": "^1.0.1"
   }
 }

@@ -45,12 +45,12 @@ const findAll = function (selector, done) {
   this.evaluate_now((selector) => {
     let elements = document.querySelectorAll(selector)
     if (!elements.length) {
-      return null
+      return []
     }
 
     elements = [].slice.call(elements) // Convert to array
 
-    const reactElements = elements.map(element => {
+    return elements.map(element => {
       for (let key in element) {
         if (key.startsWith('__reactInternalInstance$')) {
           const compInternals = element[key]._currentElement
@@ -64,8 +64,6 @@ const findAll = function (selector, done) {
         }
       }
     }).filter(e => e != null)
-
-    return reactElements
   }, done, selector)
 }
 

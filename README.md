@@ -1,5 +1,14 @@
 # Nightmare react utils
 
+Library which helps you to scrape data from react sites easily.
+
+## Installation:
+
+Using npm:
+```bash
+$ npm i --save nightmare-react-utils
+```
+
 ## Actions:
 
 #### Enhance nightmare
@@ -23,13 +32,13 @@ All actions are in .react namespace
 
 ##### .find(selector)
 Finds react elements and take his state, props and context.
-Returns objects with {state, props, context}
+Returns objects with `{state, props, context}`
 
 ##### .findAll(selector)
 Finds react elements and take their state, props and context.
-Returns array of objects {state, props, context}
+Returns array of objects `{state, props, context}`
 
-##### .wait(selector, [callback|(path, value), timeout])
+##### .wait(selector[, callback|(path, value), timeout])
 Waits for react element.
 
 Usage:

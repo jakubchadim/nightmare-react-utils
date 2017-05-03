@@ -4,6 +4,30 @@ const sliced = require('sliced')
 const _get = require('lodash.get')
 
 /**
+ * Check if react element exists
+ *
+ * @param {String} selector
+ * @param {Function} done
+ * @return {Boolean}
+ */
+const exists = function (selector, done) {
+  this.evaluate_now((selector) => {
+    let element = document.querySelector(selector)
+    if (!element) {
+      return false
+    }
+
+    for (let key in element) {
+      if (key.startsWith('__reactInternalInstance$')) {
+        return true
+      }
+    }
+
+    return false
+  }, done, selector)
+}
+
+/**
  * Find react element by selector and return his values
  *
  * @param {String} selector
@@ -196,6 +220,7 @@ function waitelem (self, selector, done) {
 module.exports = [
   'react',
   {
+    exists,
     wait,
     find,
     findAll

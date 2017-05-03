@@ -30,6 +30,10 @@ Nightmare()
 
 All actions are in .react namespace
 
+##### .exists(selector)
+Check if exists react element with selector.
+Returns `boolean`.
+
 ##### .find(selector)
 Finds react elements and take his state, props and context.
 Returns objects with `{state, props, context}`
